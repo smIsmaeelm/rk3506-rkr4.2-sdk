@@ -20,7 +20,13 @@ config RK_BUILDROOT_BASE_CFG
 config RK_BUILDROOT_CFG
 	string
 	default "rockchip_${RK_CHIP_FAMILY}" if RK_BUILDROOT_BASE_CFG = ""
-	default "rockchip_${RK_BUILDROOT_BASE_CFG}"
+	default "${RK_BUILDROOT_BASE_CFG}"
+
+config RK_BUILDROOT_CFG_FRAGMENTS
+	string "buildroot cfg fragments"
+	default ""
+	help
+        cfg fragments of buildroot defconfig for rootfs.
 
 endif # Buildroot
 endmenuconfig # Buildroot
