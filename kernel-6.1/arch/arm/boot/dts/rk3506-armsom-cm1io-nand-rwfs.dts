@@ -163,32 +163,8 @@
 		};
 	};
 
-	wifi_usb: wifi-usb {
-		status = "okay";
-		compatible = "regulator-fixed";
-		regulator-name = "wifi_usb";
-		regulator-boot-on;
-		regulator-always-on;
-		regulator-min-microvolt = <5000000>;
-		regulator-max-microvolt = <5000000>;
-		enable-active-high;
-		gpio = <&gpio0 RK_PB5 GPIO_ACTIVE_HIGH>;
-		pinctrl-names = "default";
-		pinctrl-0 = <&gpio_usb>;
-	};
-
 	wireless-bluetooth {
 		compatible = "bluetooth-platdata";
-		status = "okay";
-	};
-
-	wireless-wlan {
-		compatible = "wlan-platdata";
-		// rockchip,grf = <&grf>;
-		// pinctrl-names = "default";
-		// pinctrl-0 = <&wifi_wake_host>;
-		// wifi_chip_type = "rtl8733bu";
-		// WIFI,host_wake_irq = <&gpio1 RK_PC5 GPIO_ACTIVE_HIGH>;
 		status = "okay";
 	};
 };
@@ -310,6 +286,12 @@
 			rockchip,pins = <0 RK_PB5 RK_FUNC_GPIO &pcfg_pull_none>;
 		};
 	};
+};
+
+&pwm0_4ch_0 {
+	pinctrl-names = "active";
+	pinctrl-0 = <&rm_io21_pwm0_ch0>;
+	status = "okay";
 };
 
 &rga2 {
