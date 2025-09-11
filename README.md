@@ -54,3 +54,7 @@ Compile the Kernel:
 ### Problem discussion
 
 Common issues can be discussed on the [forum](https://forum.armsom.org/c/armsom-cm1/12 "跳转到armsom forum")
+
+### Tips
+
+The LVGL display conflicts with the Weston display (required by QT). The user will see the LVGL interface appear, but after 1-2 seconds, the screen goes black again. After logging into the system and rebooting, execute mv /etc/init.d/S49weston / and the display will return to normal.
